@@ -15,8 +15,18 @@ Astro.cookies.delete("status");
     {status && <p>{status}</p>}
     <h1>Astro</h1>
     <form action="/actions/set-status" method="post">
+      <input type="hidden" name="message" value="Success!!" />
+      <input type="submit" value="Show success message" />
+    </form>
+    <form action="/actions/set-status" method="post">
       <input type="text" name="message" required />
       <input type="submit" value="Set status message" />
     </form>
   </body>
 </html>
+
+<style>
+  form {
+    margin-bottom: 1rem;
+  }
+</style>
