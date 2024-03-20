@@ -1,16 +1,21 @@
 ---
-
+const status = (Astro.cookies.get("status") || {})?.value;
+Astro.cookies.delete("status");
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    {status && <p>{status}</p>}
+    <h1>Astro</h1>
+    <form action="/actions/set-status" method="post">
+      <input type="submit" value="Show status message" />
+    </form>
+  </body>
 </html>
