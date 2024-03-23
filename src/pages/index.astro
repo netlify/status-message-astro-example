@@ -9,11 +9,11 @@ Astro.cookies.delete("status");
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>Status messages with Astro</title>
   </head>
   <body>
     {status && <p>{status}</p>}
-    <h1>Astro</h1>
+    <h1>Status messages with Astro</h1>
     <form action="/actions/set-status" method="post">
       <input type="hidden" name="message" value="Success!!" />
       <input type="submit" value="Show success message" />
